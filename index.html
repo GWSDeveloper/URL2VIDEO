@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <title>URL2VIDEO</title>
+        <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        .navi {
+           background-color: #2c3e50;
+           height: 40px;
+           width: width: calc(100%-10px);
+           padding: 10px 20px;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+           border-bottom-left-radius: 10px;
+        }
+        
+        .navi ul {
+           list-style-type: none;
+           display: flex;
+           padding-left:20px;
+           Padding-right:20px;
+           justify-content:space-between;
+        }
+        
+        .navi span {
+           position: relative;
+           left: -12px;
+        }
+        
+        .navi a {
+           text-decoration: none;
+           font-size: 14px;
+           color: #fff;
+        }
+        
+        .btn{
+            position: relative;
+            right: -18px;
+            top: -10px;
+            background-color: #43bfc7;
+            font-color: white;
+            font-weight: 800;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            height: 30px;
+            width: 60px;
+            border-radius: 5px;
+            
+        }
+
+        .container {
+            position: relative;
+            top: 20px;
+            
+        }
+        
+        .container h1 {
+            color:#000;
+            text-align:center;
+            /*background-image:linear-gradient(90deg,violet,blue,hotpink);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            -webkit-text-stroke:1.2px;
+             border:2px solid blue violet;
+             border-radius:20px;
+             text-shadow:2px 2px 2px violet;*/
+             font-weight: 900;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        .msgdiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            width: 330px;
+            position: relative;
+            top: 20px;
+            left: 18px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .message {
+            font-size: 20px;
+            color: #2c3e50;
+            
+        }
+        
+        
+    /* Comments Section */
+    .comments {
+      background-color: #fff;
+      color: #003f7f;
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      /* Subtle box shadow */
+    }
+
+    .comments-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .comments h2 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #003f7f;
+    }
+
+    .comment {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #fff;
+      /* White background for comments */
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      /* Subtle box shadow */
+      color: #003f7f;
+    }
+
+    .comment .comment-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      color: #003f7f;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .comment-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .comment-author {
+      font-weight: bold;
+      color: #003f7f;
+    }
+
+    .comment-date {
+      margin-top: 5px;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .comment a{
+       text-decoration: none;
+    }
+    
+    .comment-content {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #003f7f;
+    }
+                
+        .footer {
+      background-color: #003f7f;
+      /* Dark blue background */
+      color: #fff;
+      /* White text color */
+      position: relative;
+      top: 95px;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo img {
+      max-width: 100px;
+      height: auto;
+    }
+
+    .footer-content {
+      position: relative;
+      left: -30px;
+      text-align: left;
+    }
+
+    .footer-content p {
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+
+    .footer-links {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    .footer-links li:last-child {
+      margin-right: 0;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ccc;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      color: #003f7f;
+      /* Dark blue text color */
+      font-size: 20px;
+      border-radius: 50%;
+      margin-right: 10px;
+      text-align: center;
+      line-height: 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background-color: #003f7f;
+      /* Dark blue background on hover */
+      color: #fff;
+      /* White text color on hover */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+      }
+
+      .footer-logo img {
+        margin-bottom: 20px;
+      }
+
+      .footer-content {
+        margin-bottom: 20px;
+      }
+
+      .footer-links li {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .footer-links li:last-child {
+        margin-bottom: 0;
+      }
+
+      .social-icons {
+        margin-top: 15px;
+      }
+
+      .social-icons a {
+        margin-right: 8px;
+      }
+    }
+    </style>
+    </head>
+    <body>
+        <div class="navi">
+            <ul>
+                <li></li>
+                <li><span>Anonymous Community</span></li>
+                <li class="btn"><a href="https://t.me/Anonymous_official_X">Join us</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <h1>URL2VIDEO</h1>
+            <p>Enter a YouTube URL to download<br>Video or Audio</p> <input type="text" id="url" placeholder="Enter YouTube URL here"> <br> <button onclick="downloadVideo()">Download Video</button> <button onclick="downloadAudio()">Download Audio</button>
+            <div class="msgdiv">
+            <p class="message" id="message"></p>
+            </div>
+            
+        </div>
+        <div class="comment" style="margin-top: 80px;">
+            <div class="comment-header"><img src="logo.png" alt="Avatar" class="avatar">
+                <div class="comment-meta"><span class="comment-author">Developer: Shantanu Patel</span> <span class="comment-date">YT: <a href="https://youtube.com/@terminalwarrior?si=blrLuPi-yRxjdU8h">Terminal Warrior</a></span>
+                </div>
+            </div>
+            <p class="comment-content">Owner of Anonymous Community</p>
+        </div>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <p>© 2025 YouTube. All rights reserved.</p>
+                    <ul class="footer-links">
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="https://t.me/Anonymous_official_X">Contact Us</a></li>
+                    </ul>
+                    <div class="social-icons"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="https://youtube.com/@terminalwarrior?si=blrLuPi-yRxjdU8h"><i class="fab fa-youtube"></i></a> <a href="#"><i class="fab fa-instagram"></i></a> <a href="https://t.me/Anonymous_official_X"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            async function downloadVideo() {
+                const url = document.getElementById('url').value.trim();
+                if (!url) {
+                    alert('Please enter a valid YouTube URL');
+                    return;
+                }
+
+                document.getElementById('message').textContent = 'Downloading Video...';
+
+                try {
+                    const response = await fetch('/download/video', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ url })
+                    });
+
+                    if (response.ok) {
+                        const blob = await response.blob();
+                        const link = document.createElement('a');
+                        link.href = URL.createObjectURL(blob);
+                        link.download = `${name}.mp4`;
+                        link.click();
+                        document.getElementById('message').textContent = 'Video downloaded successfully!';
+                    } else {
+                        throw new Error('Failed to download video. Please try again.');
+                    }
+                } catch (error) {
+                    document.getElementById('message').textContent = error.message;
+                }
+            }
+
+            async function downloadAudio() {
+                const url = document.getElementById('url').value.trim();
+                if (!url) {
+                    alert('Please enter a valid YouTube URL');
+                    return;
+                }
+
+                document.getElementById('message').textContent = 'Downloading Audio...';
+
+                try {
+                    const response = await fetch('/download/audio', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ url })
+                    });
+
+                    if (response.ok) {
+                        const blob = await response.blob();
+                        const link = document.createElement('a');
+                        link.href = URL.createObjectURL(blob);
+                        link.download = `${name}.mp3`;
+                        link.click();
+                        document.getElementById('message').textContent = 'Audio downloaded successfully!';
+                    } else {
+                        throw new Error('Failed to download audio. Please try again.');
+                    }
+                } catch (error) {
+                    document.getElementById('message').textContent = error.message;
+                }
+            }
+        </script>
+    </body>
+</html>
