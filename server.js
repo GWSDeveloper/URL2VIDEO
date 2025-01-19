@@ -8,7 +8,7 @@ const PORT = 9999;
 
 // Middleware to handle JSON
 app.use(express.json());
-app.use(express.static('static')); // Serve the downloads folder
+app.use(express.static('index.html'); // Serve the downloads folder
 
 // Endpoint to download video
 app.post('/download/video', (req, res) => {
