@@ -1,4 +1,4 @@
-# Use Node.js as the base image
+# Use Node.js as the base imag
 FROM node:18-bullseye
 
 # Install system dependencies
