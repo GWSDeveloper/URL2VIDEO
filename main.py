@@ -109,7 +109,11 @@ def download_audio(msg):
         'http_headers': {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
     'Accept-Language': 'en-US,en;q=0.9'
-       }
+       },
+        'skip_download': True,
+'quiet': True,
+'noplaylist': True,
+'extract_flat': 'in_playlist'
     }
 
     status_msg = bot.reply_to(msg, "🎧 Starting download...")
