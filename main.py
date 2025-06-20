@@ -106,6 +106,10 @@ def download_audio(msg):
         'max_filesize': MAX_FILESIZE,
         'progress_hooks': [progress],
         'quiet': True,
+        'http_headers': {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+    'Accept-Language': 'en-US,en;q=0.9'
+       }
     }
 
     status_msg = bot.reply_to(msg, "🎧 Starting download...")
